@@ -1,0 +1,141 @@
+    /* Общее стилизование */
+        .wander-nest {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            height: 100%; /* Чтобы тело страницы растягивалось на весь экран */
+            overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки */
+        }
+
+        /* Хедер */
+        .wander-nest .header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+
+        .wander-nest .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+
+        .wander-nest .header .menu {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s; /* Задержка анимации */
+        }
+
+        .wander-nest .header .menu a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none; /* Убираем подчеркивание */
+            transition: all 0.3s ease; /* Плавный переход для всех изменений */
+        }
+
+        .wander-nest .header .menu a:hover {
+            color: #ffa500; /* Оранжевый цвет при наведении */
+            transform: scale(1.1); /* Легкое увеличение при наведении */
+        }
+
+        .wander-nest .header .auth-buttons {
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1.5s; /* Задержка анимации */
+        }
+
+        .wander-nest .header .auth-buttons a {
+            color: #fff;
+            font-size: 16px;
+            padding: 5px 15px;
+            background-color: #ff4500;
+            border-radius: 5px;
+            text-decoration: none; /* Убираем подчеркивание */
+            transition: background-color 0.3s, transform 0.3s ease; /* Плавный переход */
+        }
+
+        .wander-nest .header .auth-buttons a:hover {
+            background-color: #e43f00;
+            transform: scale(1.1); /* Легкое увеличение при наведении */
+        }
+
+        /* Баннер */
+        .wander-nest .hero-banner {
+            background-image: url('https://images.wallpaperscraft.ru/image/single/pliazh_palmy_leto_121803_1920x1080.jpg'); /* Замените на ваше изображение */
+            background-size: cover; /* Растягиваем фон, чтобы он полностью покрывал экран */
+            background-position: center; /* Центрируем изображение */
+            background-attachment: fixed; /* Фиксируем фон при прокрутке */
+            height: 100vh; /* Высота баннера на весь экран */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+        }
+
+        .wander-nest .hero-banner .hero-content {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .wander-nest .hero-banner .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .wander-nest .hero-banner .hero-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .wander-nest .hero-banner .cta-button {
+            padding: 15px 30px;
+            background-color: #ff4500;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s ease; /* Плавный переход */
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 3s;
+        }
+
+        .wander-nest .hero-banner .cta-button:hover {
+            background-color: #e43f00;
+            transform: scale(1.1); /* Легкое увеличение при наведении */
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
