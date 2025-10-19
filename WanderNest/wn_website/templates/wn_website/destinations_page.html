@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block ad_style %}<link type="text/css" href="{% static 'css/destination_style.css'%}" rel="stylesheet"> {% endblock %}
+{% block content %}
+ <!-- Секция с направлениями -->
+<div class="destination-card">
+    <img src="https://via.placeholder.com/300x200" alt="Париж">
+    <div class="card-content">
+        <h3>Париж</h3>
+        <p class="description">Город любви и знаменитых достопримечательностей.</p>
+        <div class="rating">
+            <span>⭐⭐⭐⭐☆</span> 4.5 / 5
+        </div>
+        <div class="dates">
+            <span><strong>Доступность:</strong> Май - Сентябрь</span>
+        </div>
+        <div class="price">
+            <span><strong>Цена от:</strong> 120 000₽</span>
+        </div>
+        <a href="#paris" class="cta-button">Подробнее</a>
+    </div>
+</div>
+{% endblock %}

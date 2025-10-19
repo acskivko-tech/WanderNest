@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WanderNest - Путешествуй с нами</title>
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet">
+    {% block ad_style %}{% endblock %}
 </head>
 <body class="wander-nest">
 
@@ -13,8 +14,8 @@
     <header class="header">
         <a href="#" class="logo">WanderNest</a>
         <nav class="menu">
-            <a href="#home">Главная</a>
-            <a href="#destinations">Направления</a>
+            <a href="{% url 'welcome_page' %}">Главная</a>
+            <a href="{% url 'destination_page' %}">Направления</a>
             <a href="#booking">Бронирование</a>
             <a href="#contact">Контакты</a>
         </nav>
