@@ -1,0 +1,15 @@
+{% extends 'base_form.html'%}
+{% block form_content %}
+<!-- Страница регистрации -->
+        <section class="auth-page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h2 class="auth-title">Создайте учетную запись</h2>
+                    <form>
+                        {{form.as_p}}
+                    </form>
+                    <p class="auth-switch">Уже есть аккаунт? <a href="{% url 'auth_page'%}">Войдите здесь</a></p>
+                </div>
+            </div>
+        </section>
+{% endblock %}

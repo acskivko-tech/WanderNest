@@ -9,7 +9,6 @@
     {% block ad_style %}{% endblock %}
 </head>
 <body class="wander-nest">
-
     <!-- Хедер -->
     <header class="header">
         <a href="#" class="logo">WanderNest</a>
@@ -20,8 +19,8 @@
             <a href="#contact">Контакты</a>
         </nav>
         <div class="auth-buttons">
-            <a href="#login">Войти</a>
-            <a href="#register">Регистрация</a>
+            <a href="{% url 'auth_page' %}">Войти</a>
+            <a href="{% url 'registration_page' %}">Регистрация</a>
         </div>
     </header>
 {% block content %}{% endblock %}

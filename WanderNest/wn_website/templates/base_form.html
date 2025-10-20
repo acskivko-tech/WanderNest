@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход / Регистрация</title>
+    <link rel="stylesheet" href='{% static "css/form_style.css" %}' type="text/css"> <!-- Путь к CSS файлу -->
+</head>
+<body>
+    <div class="wander-nest">
+       {% block form_content %}{% endblock %}
+    </div>
+</body>
+</html>

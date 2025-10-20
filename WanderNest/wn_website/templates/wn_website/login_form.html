@@ -1,0 +1,17 @@
+{% extends 'base_form.html'%}
+{% block form_content %}
+        <!-- Страница входа -->
+        <!-- Можно просто заменить ссылку и форму в зависимости от нужной страницы -->
+        <!-- Вход -->
+        <section class="auth-page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h2 class="auth-title">Добро пожаловать обратно</h2>
+                    <form class="auth-form">
+                        {{form.as_p}}
+                    </form>
+                    <p class="auth-switch">Нет аккаунта? <a href="{% url 'registration_page'%}">Зарегистрируйтесь здесь</a></p>
+                </div>
+            </div>
+        </section>
+{% endblock %}
