@@ -8,6 +8,7 @@
                 <div class="auth-card">
                     <h2 class="auth-title">Добро пожаловать обратно</h2>
                     <form class="auth-form">
+                        {% csrf_token %}
                         {{form.as_p}}
                     </form>
                     <p class="auth-switch">Нет аккаунта? <a href="{% url 'registration_page'%}">Зарегистрируйтесь здесь</a></p>

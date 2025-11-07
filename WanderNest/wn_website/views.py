@@ -1,22 +1,22 @@
 from django.contrib.auth import get_user_model, authenticate
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
-
+from django.views.generic import CreateView, TemplateView, ListView
 from wn_website.forms import UserLogin, UserCreation
+from wn_website.models import Tour
 
 
 # Create your views here.
 
-def main_page(request):
-    return render(request,'wn_website/welcome_page.html')
+class MainPageView(TemplateView):
+    template_name = 'wn_website/welcome_page.html'
 
-def destination_page(request):
-    return render(request,'wn_website/destinations_page.html')
+class TourListView(ListView):
+    template_name = 'wn_website/destinations_page'
+    queryset = Tour.objects.all()
+    context_object_name = 'tour_list'
 
-class UserRegister(CreateView):
+class UserRegisterView(CreateView):
     form_class = UserCreation
     model = get_user_model()
     template_name = 'wn_website/register_page.html'
