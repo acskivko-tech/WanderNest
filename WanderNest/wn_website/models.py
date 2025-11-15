@@ -20,7 +20,7 @@ class Tour(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     transport = models.ForeignKey(Transport,on_delete=models.CASCADE)
     creation_tour_date = models.DateTimeField(auto_created=True)
-    slug = models.SlugField(unique=True,blank=False)
+    slug = models.SlugField(unique=True,blank=True)
 
     def __str__(self):
         return self.title

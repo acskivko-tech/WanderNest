@@ -8,6 +8,9 @@
                     <form method="POST">
                         {% csrf_token %}
                         {{form.as_p}}
+                        <button type="submit" class="btn-register">
+                        Зарегистрироваться
+                        </button>
                     </form>
                     <p class="auth-switch">Уже есть аккаунт? <a href="{% url 'auth_page'%}">Войдите здесь</a></p>
                 </div>

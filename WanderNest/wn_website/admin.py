@@ -6,9 +6,9 @@ from wn_website.models import Transport, Tour
 # Register your models here.
 @admin.register(Transport)
 class Transport(admin.ModelAdmin):
-    list_display = ['id','name']
+    list_display = ['id','name','description']
     list_display_links = ['name']
-    ordering = ['name']
+    ordering = ['id','name']
     list_per_page = 15
 
 @admin.register(Tour)

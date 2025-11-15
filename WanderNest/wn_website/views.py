@@ -9,28 +9,33 @@ from wn_website.models import Tour
 # Create your views here.
 
 class MainPageView(TemplateView):
-    template_name = 'wn_website/welcome_page.html'
+    template_name = 'wn_website/main_pages/welcome_page.html'
+
 
 class TourListView(ListView):
-    template_name = 'wn_website/destinations_page'
+    template_name = 'wn_website/main_pages/destinations_page.html'
     queryset = Tour.objects.all()
-    context_object_name = 'tour_list'
+
 
 class UserRegisterView(CreateView):
     form_class = UserCreation
     model = get_user_model()
-    template_name = 'wn_website/register_page.html'
+    template_name = 'wn_website/forms/register_page.html'
     success_url = reverse_lazy('welcome_page')
+
 
 def login(request):
     if request.method == 'POST':
         form = UserLogin(request,data=request.POST)
         if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(username=cd['username'],password=cd['password'])
+
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+            user = authenticate(username=username,password=password)
             if user and user.is_active:
                 login(request,user)
-                return render(request,'wn_website/welcome_page.html')
+                return render(request,'wn_website/main_pages/welcome_page.html')
     else:
         form = UserLogin
-        return render(request,'wn_website/login_form.html',{'form':form})
+        return render(request,'wn_website/forms/login_form.html',{'form':form})
