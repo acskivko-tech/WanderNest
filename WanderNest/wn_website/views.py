@@ -1,4 +1,5 @@
-from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView
@@ -10,6 +11,13 @@ from wn_website.models import Tour
 
 class MainPageView(TemplateView):
     template_name = 'wn_website/main_pages/welcome_page.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['user'] = self.request.user
+        return context
+
 
 
 class TourListView(ListView):
@@ -24,18 +32,25 @@ class UserRegisterView(CreateView):
     success_url = reverse_lazy('welcome_page')
 
 
-def login(request):
-    if request.method == 'POST':
-        form = UserLogin(request,data=request.POST)
-        if form.is_valid():
+# def login_user(request):
+#     if request.method == 'POST':
+#         form = UserLogin(request,data=request.POST)
+#         if form.is_valid():
+#
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password']
+#
+#             user = authenticate(username=username,password=password)
+#             if user and user.is_active:
+#                 login(request,user)
+#                 return render(request,'wn_website/main_pages/welcome_page.html')
+#     else:
+#         form = UserLogin
+#         return render(request,'wn_website/forms/login_form.html',{'form':form})
 
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+class LoginUserView(LoginView):
+    form_class = UserLogin
+    template_name ='wn_website/forms/login_form.html'
 
-            user = authenticate(username=username,password=password)
-            if user and user.is_active:
-                login(request,user)
-                return render(request,'wn_website/main_pages/welcome_page.html')
-    else:
-        form = UserLogin
-        return render(request,'wn_website/forms/login_form.html',{'form':form})
+    def get_success_url(self):
+        return reverse_lazy('welcome_page')

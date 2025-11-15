@@ -1,21 +1,19 @@
-{% extends 'base_form.html'%}
+{% extends 'base_form.html' %}
 {% block form_content %}
-        <!-- Страница входа -->
-        <!-- Можно просто заменить ссылку и форму в зависимости от нужной страницы -->
-        <!-- Вход -->
-        <section class="auth-page">
-            <div class="auth-container">
-                <div class="auth-card">
-                    <h2 class="auth-title">Добро пожаловать обратно</h2>
-                    <form class="auth-form">
-                        {% csrf_token %}
-                        {{form.as_p}}
-                        <button type="submit" class="btn-login">
+    <!-- Страница входа -->
+    <section class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2 class="auth-title">Добро пожаловать обратно</h2>
+                <form class="auth-form" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn-login">
                         Войти
-                        </button>
-                    </form>
-                    <p class="auth-switch">Нет аккаунта? <a href="{% url 'registration_page'%}">Зарегистрируйтесь здесь</a></p>
-                </div>
+                    </button>
+                </form>
+                <p class="auth-switch">Нет аккаунта? <a href="{% url 'registration_page' %}">Зарегистрируйтесь здесь</a></p>
             </div>
-        </section>
+        </div>
+    </section>
 {% endblock %}

@@ -1,19 +1,39 @@
-{% extends 'base_form.html'%}
+{% extends 'base_form.html' %}
 {% block form_content %}
-<!-- Страница регистрации -->
-        <section class="auth-page">
-            <div class="auth-container">
-                <div class="auth-card">
-                    <h2 class="auth-title">Создайте учетную запись</h2>
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{form.as_p}}
-                        <button type="submit" class="btn-register">
-                        Зарегистрироваться
-                        </button>
-                    </form>
-                    <p class="auth-switch">Уже есть аккаунт? <a href="{% url 'auth_page'%}">Войдите здесь</a></p>
-                </div>
+    <section class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2 class="auth-title">Создайте учетную запись</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-field">
+                        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+                        {{ form.password2 }}
+                    </div>
+                    <button type="submit" class="btn-register">Зарегистрироваться</button>
+                </form>
+                <p class="auth-switch">Уже есть аккаунт? <a href="{% url 'auth_page' %}">Войдите здесь</a></p>
             </div>
-        </section>
+        </div>
+    </section>
 {% endblock %}

@@ -1,4 +1,3 @@
-/* Сброс стандартных отступов и рамок */
 *,
 *::before,
 *::after {
@@ -11,29 +10,29 @@
 .wander-nest .auth-page {
     background-color: #f0f0f0;
     background-image: url('https://wallpaper.forfun.com/fetch/d4/d418189913935f4edf5e50afb981ef36.jpeg'); /* Замените на путь к вашему изображению */
-    background-size: cover; /* Растягиваем изображение по всему экрану */
-    background-position: center; /* Центрируем изображение */
-    background-attachment: fixed; /* Фиксируем фон при прокрутке */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden; /* Убираем лишние рамки и полосы прокрутки */
-    margin: 0; /* Убираем внешние отступы */
-    animation: backgroundMove 30s ease infinite; /* Анимация фона */
+    overflow: hidden;
+    margin: 0;
+    animation: backgroundMove 30s ease infinite;
 }
 
 /* Анимация для фона */
 @keyframes backgroundMove {
     0% {
-        background-position: center; /* Начальная позиция фона */
+        background-position: center;
     }
     50% {
-        background-position: left; /* Перемещение фона влево */
+        background-position: left;
     }
     100% {
-        background-position: center; /* Возврат в начальную позицию */
+        background-position: center;
     }
 }
 
@@ -44,12 +43,12 @@
     align-items: center;
     flex-direction: column;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон для контента */
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
-    overflow: hidden; /* Убираем лишние рамки */
+    overflow: hidden;
 }
 
 /* Карточка с формой */
@@ -87,8 +86,10 @@
     border-color: #ff4500;
 }
 
-/* Кнопка отправки */
-.wander-nest .auth-button {
+/* Кнопки (Вход и Регистрация) */
+.wander-nest .auth-button,
+.wander-nest .btn-register,
+.wander-nest .btn-login {
     padding: 15px 20px;
     background-color: #ff4500;
     color: white;
@@ -99,7 +100,15 @@
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.wander-nest .auth-button:hover {
+.wander-nest .btn-register {
+    background-color: #4caf50; /* Зеленый для регистрации */
+}
+
+.wander-nest .btn-register:hover {
+    background-color: #45a049;
+}
+
+.wander-nest .btn-login:hover {
     background-color: #e43f00;
     transform: scale(1.05);
 }
@@ -131,7 +140,6 @@
     }
 }
 
-/* Применение анимации на форму */
 .wander-nest .auth-card {
     animation: fadeIn 1s ease-out;
 }
@@ -151,7 +159,9 @@
         font-size: 14px;
     }
 
-    .wander-nest .auth-button {
+    .wander-nest .auth-button,
+    .wander-nest .btn-register,
+    .wander-nest .btn-login {
         font-size: 16px;
     }
 }
