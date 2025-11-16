@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model, authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.template.context_processors import request
 from django.urls import reverse_lazy
@@ -27,6 +28,7 @@ class MainPageView(TemplateView):
 class TourListView(ListView):
     template_name = 'wn_website/main_pages/destinations_page.html'
     queryset = Tour.objects.all()
+    paginator_class = Paginator(queryset,10)
 
 
 class UserRegisterView(CreateView):

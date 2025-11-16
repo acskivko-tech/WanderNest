@@ -1,0 +1,111 @@
+/* Стиль для страницы профиля пользователя */
+.user-profile {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s forwards;
+}
+
+/* Заголовок профиля */
+.user-profile .profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-profile .profile-header h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.user-profile .profile-header p {
+    font-size: 18px;
+    color: #777;
+}
+
+/* Секция с информацией о пользователе */
+.user-profile .profile-info {
+    margin-bottom: 30px;
+}
+
+.user-profile .profile-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.user-profile .profile-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-profile .profile-info li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.user-profile .profile-info strong {
+    color: #333;
+}
+
+/* Секция с информацией о бронированиях */
+.user-profile .booking-info {
+    margin-bottom: 30px;
+}
+
+.user-profile .booking-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.user-profile .booking-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-profile .booking-info li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.user-profile .booking-info strong {
+    color: #333;
+}
+
+/* Кнопки внизу страницы */
+.user-profile .update-section,
+.user-profile .logout-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Кнопки */
+.user-profile .btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.user-profile .btn-danger {
+    background-color: #ff4500;
+}
+
+.user-profile .btn-danger:hover {
+    background-color: #e43f00;
+    transform: scale(1.05);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

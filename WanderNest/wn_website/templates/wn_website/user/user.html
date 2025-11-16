@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block ad_style %}<link rel="stylesheet" href='{% static "css/user_styles/user_style.css" %}' type="text/css">{% endblock %}
 {% block content %}
     <div class="user-profile">
         <div class="profile-header">
-            <h1>Привет, {{ user.username }}!</h1>
-            <p>Добро пожаловать на свою страницу.</p>
+            <h1>Приветствуем, {{ user.username }}!</h1>
+            <p>Добро пожаловать на вашу страницу.</p>
         </div>
 
         <div class="profile-info">
-            <h2>Информация о тебе:</h2>
+            <h2>Информация о вас:</h2>
             <ul>
                 <li><strong>Имя:</strong> {{ user.first_name }} {{ user.last_name }}</li>
                 <li><strong>Email:</strong> {{ user.email }}</li>

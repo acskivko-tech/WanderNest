@@ -1,306 +1,86 @@
-/* Общее стилизование */
-.wander-nest {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-/* Хедер */
-.wander-nest .header {
-    background-color: #333;
-    padding: 10px 20px;
+/* === ОБЩИЕ СТИЛИ === */
+.destinations-page {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    opacity: 0;
-    animation: fadeIn 1s forwards 0.5s;
-}
-
-.wander-nest .header .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-}
-
-.wander-nest .header .menu {
-    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    opacity: 0;
-    animation: fadeIn 1s forwards 1s;
-}
-
-.wander-nest .header .menu a {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.wander-nest .header .menu a:hover {
-    color: #ffa500;
-    transform: scale(1.1);
-}
-
-.wander-nest .header .auth-buttons {
-    display: flex;
-    gap: 10px;
-    opacity: 0;
-    animation: fadeIn 1s forwards 1.5s;
-}
-
-.wander-nest .header .auth-buttons a {
-    color: #fff;
-    font-size: 16px;
-    padding: 5px 15px;
-    background-color: #ff4500;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s ease;
-}
-
-.wander-nest .header .auth-buttons a:hover {
-    background-color: #e43f00;
-    transform: scale(1.1);
-}
-
-/* Баннер */
-.wander-nest .hero-banner {
-    background-image: url('https://images.wallpaperscraft.ru/image/single/pliazh_palmy_leto_121803_1920x1080.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    color: white;
+    padding: 40px 20px;
+}
+
+.destination-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s ease;
+}
+
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.destination-card:hover img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
     text-align: center;
-    padding: 0 20px;
-    opacity: 0;
-    animation: fadeIn 2s forwards 2s;
 }
 
-.wander-nest .hero-banner .hero-content {
-    animation: slideUp 1s ease-out forwards;
-}
-
-.wander-nest .hero-banner .hero-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.wander-nest .hero-banner .hero-content p {
+.card-content h3 {
     font-size: 20px;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
 }
 
-.wander-nest .hero-banner .cta-button {
-    padding: 15px 30px;
+.dates, .price {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.dates strong, .price strong {
+    color: #333;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
     background-color: #ff4500;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
     border-radius: 5px;
-    text-transform: uppercase;
     text-decoration: none;
-    border: none;
-    cursor: pointer;
+    text-transform: uppercase;
     transition: background-color 0.3s, transform 0.3s ease;
-    opacity: 0;
-    animation: fadeIn 1.5s forwards 3s;
-    display: inline-block;
+    margin-top: 15px;
 }
 
-.wander-nest .hero-banner .cta-button:hover {
+.cta-button:hover {
     background-color: #e43f00;
     transform: scale(1.1);
 }
 
-/* Секция туров */
-.wander-nest .tours-section {
-    padding: 60px 20px;
-    background-color: #fff;
-}
-
-.wander-nest .tours-section h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.wander-nest .tours-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Карточки туров */
-.wander-nest .tour-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-}
-
-.wander-nest .tour-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-.wander-nest .tour-card:nth-child(1) { animation-delay: 0.3s; }
-.wander-nest .tour-card:nth-child(2) { animation-delay: 0.6s; }
-.wander-nest .tour-card:nth-child(3) { animation-delay: 0.9s; }
-
-.wander-nest .tour-image {
-    height: 200px;
-    overflow: hidden;
-}
-
-.wander-nest .tour-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.wander-nest .tour-card:hover .tour-image img {
-    transform: scale(1.1);
-}
-
-.wander-nest .tour-content {
-    padding: 20px;
-}
-
-.wander-nest .tour-badge {
-    display: inline-block;
-    padding: 5px 12px;
-    background-color: #ff4500;
-    color: white;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.wander-nest .tour-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.wander-nest .tour-description {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.wander-nest .tour-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: #888;
-}
-
-.wander-nest .tour-price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff4500;
-    margin-bottom: 15px;
-}
-
-.wander-nest .tour-button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.wander-nest .tour-button:hover {
-    background-color: #ff4500;
-}
-
-/* Футер */
-.wander-nest .footer {
-    background-color: #333;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-/* Анимации */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Адаптивность */
+/* === МЕДИА-ЗАПРОСЫ === */
 @media (max-width: 768px) {
-    .wander-nest .header {
+    .destinations-page {
         flex-direction: column;
-        gap: 15px;
-        padding: 15px;
+        align-items: center;
     }
 
-    .wander-nest .header .menu {
-        gap: 15px;
-    }
-
-    .wander-nest .hero-banner .hero-content h1 {
-        font-size: 32px;
-    }
-
-    .wander-nest .hero-banner .hero-content p {
-        font-size: 16px;
-    }
-
-    .wander-nest .tours-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .wander-nest .hero-banner {
-        background-attachment: scroll;
+    .destination-card {
+        width: 90%;
     }
 }

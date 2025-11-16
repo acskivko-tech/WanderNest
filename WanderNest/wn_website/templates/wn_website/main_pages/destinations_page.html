@@ -1,21 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block ad_style %}<link type="text/css" href="{% static 'css/destination_style.css'%}" rel="stylesheet"> {% endblock %}
+
+{% block ad_style %}
+<link type="text/css" href="{% static 'css/destination_style.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
- <!-- Секция с направлениями -->
-{% for tour in tour_list %}
-<div class="destination-card">
-    <img src="{{tour.img_url}}" alt="{{tour.slug}}">
-    <div class="card-content">
-        <h3>{{tour.title}}</h3>
-        <div class="dates">
-            <span><strong>Доступность:</strong> {{tour.start_date}} - {{tour.end_date}}</span>
+
+<div class="destinations-page">
+
+    {% for tour in tour_list %}
+    <div class="destination-card">
+        <img src="{{ tour.img_url }}" alt="{{ tour.slug }}">
+
+        <div class="card-content">
+            <h3>{{ tour.title }}</h3>
+
+            <div class="dates">
+                <span><strong>Доступность:</strong> {{ tour.start_date }} - {{ tour.end_date }}</span>
+            </div>
+
+            <div class="price">
+                <span><strong>Цена от:</strong> {{ tour.price }}$</span>
+            </div>
+
+            <a href="#" class="cta-button">Подробнее</a>
         </div>
-        <div class="price">
-            <span><strong>Цена от:</strong> {{tour.price}}$</span>
-        </div>
-        <a href="" class="cta-button">Подробнее</a>
     </div>
+    {% endfor %}
+
 </div>
-{% endfor %}
+
 {% endblock %}

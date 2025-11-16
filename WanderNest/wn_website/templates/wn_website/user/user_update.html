@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block ad_style %}<link rel="stylesheet" href='{% static "css/user_styles/user_form_style.css" %}' type="text/css">{% endblock %}
 {% block content %}
-                <form method="post">
+                <form method="post" class="user-form">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit">
