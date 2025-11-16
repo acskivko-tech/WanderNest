@@ -9,7 +9,7 @@
     overflow-x: hidden;
 }
 
-/* Хедер */
+/* === НОВЫЙ ХЕДЕР (ПОФИКШЕННЫЙ) === */
 .wander-nest .header {
     background-color: #333;
     padding: 10px 20px;
@@ -21,6 +21,7 @@
     animation: fadeIn 1s forwards 0.5s;
 }
 
+/* ЛОГО */
 .wander-nest .header .logo {
     font-size: 24px;
     font-weight: bold;
@@ -29,11 +30,11 @@
     transition: color 0.3s ease;
 }
 
+/* МЕНЮ */
 .wander-nest .header .menu {
     display: flex;
     gap: 20px;
-    opacity: 0;
-    animation: fadeIn 1s forwards 1s;
+    align-items: center;
 }
 
 .wander-nest .header .menu a {
@@ -49,20 +50,32 @@
     transform: scale(1.1);
 }
 
-/* Контейнер для кнопок входа и выхода */
-.wander-nest .header .auth-buttons {
-    display: flex;
-    gap: 15px; /* Уменьшаем промежуток между кнопками */
-    opacity: 0;
-    animation: fadeIn 1s forwards 1.5s;
-}
-
-/* Стили для ссылки с именем пользователя */
+/* Блок с кнопками справа */
+.wander-nest .header .auth-buttons,
 .wander-nest .header .auth_user {
     display: flex;
-    align-items: center; /* Выравниваем по центру */
+    align-items: center;
+    gap: 15px;
 }
 
+/* Стиль кнопок Войти/Регистрация */
+.wander-nest .header .auth-buttons a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #ff4500;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.wander-nest .header .auth-buttons a:hover {
+    background-color: #e43f00;
+    transform: scale(1.1);
+}
+
+/* Кнопка и имя пользователя */
 .wander-nest .header .auth_user a {
     color: #fff;
     font-size: 16px;
@@ -79,7 +92,7 @@
     transform: scale(1.1);
 }
 
-/* Стили для кнопки выхода */
+/* Кнопка выхода */
 .wander-nest .header .auth_user form button {
     padding: 10px 20px;
     background-color: #ff4500;
@@ -89,7 +102,6 @@
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s ease;
-    margin-left: 10px; /* Немного отступа от ссылки */
 }
 
 .wander-nest .header .auth_user form button:hover {
@@ -148,10 +160,6 @@
 
 /* Анимации */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

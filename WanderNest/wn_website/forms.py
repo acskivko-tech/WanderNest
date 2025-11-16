@@ -1,10 +1,10 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django  import  forms
 
 
 
-class UserCreation(UserCreationForm):
+class UserCreationForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
@@ -25,7 +25,7 @@ class UserCreation(UserCreationForm):
 
 
 
-class UserLogin(AuthenticationForm):
+class UserLoginFrom(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput({'class':'form-input'}))
 
 
@@ -34,3 +34,17 @@ class UserLogin(AuthenticationForm):
         fields = ['username','password']
         labels = {'username':'Имя пользователя',
                   'password':'Пароль',}
+
+
+
+
+class UserUpdateForm(UserChangeForm):
+    email = forms.EmailField(disabled=True)
+    password = forms.CharField(widget=forms.PasswordInput,disabled=True)
+
+    class Meta:
+        model = get_user_model()
+        fields = ['username','email','first_name','last_name','password']
+
+
+

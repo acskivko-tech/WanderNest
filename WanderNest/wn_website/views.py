@@ -1,10 +1,14 @@
+
 from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
+from django.template.context_processors import request
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView, ListView
-from wn_website.forms import UserLogin, UserCreation
-from wn_website.models import Tour
+from django.views.generic import CreateView, TemplateView, ListView, UpdateView
+from wn_website.forms import UserUpdateForm, UserCreationForm, UserLoginFrom
+from wn_website.models import Tour, Booking
 
 
 # Create your views here.
@@ -26,31 +30,38 @@ class TourListView(ListView):
 
 
 class UserRegisterView(CreateView):
-    form_class = UserCreation
+    form_class = UserCreationForm
     model = get_user_model()
     template_name = 'wn_website/forms/register_page.html'
     success_url = reverse_lazy('welcome_page')
 
 
-# def login_user(request):
-#     if request.method == 'POST':
-#         form = UserLogin(request,data=request.POST)
-#         if form.is_valid():
-#
-#             username = form.cleaned_data['username']
-#             password = form.cleaned_data['password']
-#
-#             user = authenticate(username=username,password=password)
-#             if user and user.is_active:
-#                 login(request,user)
-#                 return render(request,'wn_website/main_pages/welcome_page.html')
-#     else:
-#         form = UserLogin
-#         return render(request,'wn_website/forms/login_form.html',{'form':form})
-
 class LoginUserView(LoginView):
-    form_class = UserLogin
+    form_class = UserLoginFrom
     template_name ='wn_website/forms/login_form.html'
 
     def get_success_url(self):
         return reverse_lazy('welcome_page')
+
+
+class UserPageView(LoginRequiredMixin,TemplateView):
+    template_name = 'wn_website/user/user.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        bookings = Booking.objects.filter(user=self.request.user)
+
+        context['user'] = self.request.user
+        context['bookings'] = bookings
+        context['booking_count'] = bookings.count()
+        return context
+
+
+class UserUpdateView(LoginRequiredMixin,UpdateView):
+    form_class = UserUpdateForm
+    template_name ='wn_website/user/user_update.html'
+    success_url = 'wn_website/user/user.html'
+
+    def get_object(self):
+        return self.request.user

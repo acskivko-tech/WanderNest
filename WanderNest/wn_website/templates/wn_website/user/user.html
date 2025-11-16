@@ -1,2 +1,55 @@
-{% extends base.html %%}
-{% block content %}{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="user-profile">
+        <div class="profile-header">
+            <h1>Привет, {{ user.username }}!</h1>
+            <p>Добро пожаловать на свою страницу.</p>
+        </div>
+
+        <div class="profile-info">
+            <h2>Информация о тебе:</h2>
+            <ul>
+                <li><strong>Имя:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+                <li><strong>Email:</strong> {{ user.email }}</li>
+                <li><strong>Дата регистрации:</strong> {{ user.date_joined|date:"d M Y" }}</li>
+                <li><strong>Последний вход:</strong> {{ user.last_login|date:"d M Y, H:i" }}</li>
+            </ul>
+        </div>
+
+        <!-- Блок с информацией о бронированиях -->
+        <div class="booking-info">
+            <h2>Ваши бронирования:</h2>
+            <p>Вы сделали {{ booking_count }} бронирование(й).</p>
+
+            {% if bookings %}
+                <ul>
+                    {% for booking in bookings %}
+                        <li>
+                            <strong>Место:</strong> {{ booking.destination }}<br>
+                            <strong>Даты:</strong> {{ booking.start_date|date:"d M Y" }} - {{ booking.end_date|date:"d M Y" }}<br>
+                            <strong>Статус:</strong> {{ booking.get_status_display }}<br>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>У вас нет бронирований.</p>
+            {% endif %}
+        </div>
+
+        <div class="update-section">
+            <form method="get" action="{% url 'user_update_page' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Изменить</button>
+            </form>
+        </div>
+
+        <div class="logout-section">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Выйти</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

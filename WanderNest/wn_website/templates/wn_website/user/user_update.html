@@ -1,2 +1,10 @@
-{% extends base.html %%}
-{% block content %}{% endblock %}
+{% extends 'base.html' %}
+{% block content %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">
+                        Применить
+                    </button>
+                </form>
+{% endblock %}
