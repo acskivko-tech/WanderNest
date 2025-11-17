@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.template.context_processors import request
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView, ListView, UpdateView
+from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DetailView
 from wn_website.forms import UserUpdateForm, UserCreationForm, UserLoginFrom
 from wn_website.models import Tour, Booking
 
@@ -29,6 +29,12 @@ class TourListView(ListView):
     template_name = 'wn_website/main_pages/destinations_page.html'
     queryset = Tour.objects.all()
     paginator_class = Paginator(queryset,10)
+
+
+class TourInfoView(DetailView):
+    model = Tour
+    template_name = 'wn_website/main_pages/destination_info.html'
+    context_object_name = 'tour'
 
 
 class UserRegisterView(CreateView):

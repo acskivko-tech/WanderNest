@@ -1,0 +1,81 @@
+/* Детали тура */
+.wander-nest .tour-details {
+    background-color: #fff;
+    padding: 50px 20px;
+}
+
+.wander-nest .tour-details .container {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.wander-nest .tour-info {
+    flex: 0 0 60%;
+}
+
+.wander-nest .tour-gallery {
+    flex: 0 0 35%;
+}
+
+.wander-nest .tour-info h2, 
+.wander-nest .tour-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.wander-nest .tour-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.wander-nest .tour-info ul li {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.wander-nest .tour-gallery .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.wander-nest .tour-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.wander-nest #book-now {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.wander-nest #book-now form {
+    display: inline-block;
+    max-width: 400px;
+    width: 100%;
+}
+
+.wander-nest #book-now input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.wander-nest #book-now button {
+    padding: 12px 25px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.wander-nest #book-now button:hover {
+    background-color: #e43f00;
+}

@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 
@@ -26,7 +28,7 @@ class Tour(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('tour_details',kwargs={'tour':self.slug})
+        return reverse('destination_info',kwargs={'slug':self.slug})
 
 class Booking(models.Model):
     user = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)

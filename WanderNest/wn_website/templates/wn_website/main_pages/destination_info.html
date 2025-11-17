@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block ad_style %}<link type="text/css" href="{% static 'css/destination_details.css' %}" rel="stylesheet"> {% endblock %}
+{% block content %}
+    <!-- Баннер с информацией о туре -->
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1>{{ tour.name }}</h1>
+            <p>{{ tour.short_description }}</p>
+            <a href="#book-now" class="cta-button">Забронировать тур</a>
+        </div>
+    </div>
+
+    <!-- Детали тура -->
+    <section class="tour-details">
+        <div class="container">
+            <div class="tour-info">
+                <h2>Описание тура</h2>
+                <p>{{ tour.description }}</p>
+
+                <h3>Что включено в тур?</h3>
+                <ul>
+                    <li>Транспорт</li>
+                    <li>Проживание</li>
+                    <li>Экскурсии</li>
+                    <li>Питание</li>
+                    <li>Гид-переводчик</li>
+                </ul>
+
+                <h3>Даты тура</h3>
+                <p>С: {{ tour.start_date }} по {{ tour.end_date }}</p>
+
+                <h3>Цена</h3>
+                <p>{{ tour.price }} ₽</p>
+            </div>
+
+            <div class="tour-gallery">
+                <h3>Галерея</h3>
+                <div class="gallery">
+                    {% for image in tour.images.all %}
+                        <img src="{{ image.url }}" alt="{{ tour.name }} image">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Кнопка бронирования -->
+    <section id="book-now">
+        <div class="container">
+            <h2>Забронируйте свой тур</h2>
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <label for="num_people">Количество человек</label>
+                <input type="number" id="num_people" name="num_people" min="1" required>
+
+                <button type="submit" class="cta-button">Забронировать</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

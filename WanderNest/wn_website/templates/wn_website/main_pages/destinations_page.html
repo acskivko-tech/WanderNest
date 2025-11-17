@@ -24,7 +24,7 @@
                 <span><strong>Цена от:</strong> {{ tour.price }}$</span>
             </div>
 
-            <a href="#" class="cta-button">Подробнее</a>
+            <a href="{{tour.get_absolute_url}}" class="cta-button">Подробнее</a>
         </div>
     </div>
     {% endfor %}
