@@ -1,167 +1,127 @@
-*,
-*::before,
-*::after {
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
 }
 
-/* Страница с формами */
-.wander-nest .auth-page {
-    background-color: #f0f0f0;
-    background-image: url('https://wallpaper.forfun.com/fetch/d4/d418189913935f4edf5e50afb981ef36.jpeg'); /* Замените на путь к вашему изображению */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
+/* Блок для контента страницы */
+.wander-nest {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    animation: backgroundMove 30s ease infinite;
-}
-
-/* Анимация для фона */
-@keyframes backgroundMove {
-    0% {
-        background-position: center;
-    }
-    50% {
-        background-position: left;
-    }
-    100% {
-        background-position: center;
-    }
+    min-height: 100vh;
+    background-color: #f0f0f0;
 }
 
 /* Контейнер для формы */
-.wander-nest .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.auth-page {
+    width: 100%;
+    max-width: 480px; /* Ограничиваем максимальную ширину */
+    background-color: #fff;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень вокруг карточки */
 }
 
-/* Карточка с формой */
-.wander-nest .auth-card {
-    width: 100%;
-}
-
-/* Заголовок страницы */
-.wander-nest .auth-title {
-    font-size: 28px;
-    font-weight: 700;
+/* Стиль заголовка */
+.auth-title {
+    font-size: 24px;
+    font-weight: 600;
     color: #333;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-/* Форма */
-.wander-nest .auth-form {
+/* Стиль формы */
+.auth-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
-.wander-nest .auth-form input {
+/* Стили для полей ввода */
+.auth-form input {
     padding: 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border 0.3s ease;
 }
 
-.wander-nest .auth-form input:focus {
-    border-color: #ff4500;
+.auth-form input:focus {
+    border-color: #ff4500; /* Подсветка поля при фокусе */
 }
 
-/* Кнопки (Вход и Регистрация) */
-.wander-nest .auth-button,
-.wander-nest .btn-register,
-.wander-nest .btn-login {
-    padding: 15px 20px;
+.auth-errors ul {
+    padding: 0;
+    list-style: none;
+    color: #ff4500; /* Цвет ошибок */
+    margin-bottom: 20px;
+}
+
+.auth-errors li {
+    font-size: 14px;
+}
+
+/* Стили для кнопки отправки */
+.btn-submit {
+    padding: 12px 0;
     background-color: #ff4500;
     color: white;
-    font-size: 18px;
-    border-radius: 5px;
     border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.wander-nest .btn-register {
-    background-color: #4caf50; /* Зеленый для регистрации */
-}
-
-.wander-nest .btn-register:hover {
-    background-color: #45a049;
-}
-
-.wander-nest .btn-login:hover {
-    background-color: #e43f00;
-    transform: scale(1.05);
-}
-
-/* Ссылка на переключение между регистрацией и входом */
-.wander-nest .auth-switch {
-    text-align: center;
-    margin-top: 20px;
     font-size: 16px;
-    color: #555;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.wander-nest .auth-switch a {
+.btn-submit:hover {
+    background-color: #e43f00;
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+/* Стили для переключения на регистрацию */
+.auth-switch {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 20px;
+}
+
+.auth-switch a {
     color: #ff4500;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.wander-nest .auth-switch a:hover {
-    text-decoration: underline;
-}
-
-/* Анимация для карточки с формой */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.wander-nest .auth-card {
-    animation: fadeIn 1s ease-out;
+.auth-switch a:hover {
+    color: #e43f00;
 }
 
 /* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    .wander-nest .auth-container {
+@media (max-width: 480px) {
+    .auth-page {
         padding: 20px;
     }
 
-    .wander-nest .auth-title {
-        font-size: 24px;
+    .auth-title {
+        font-size: 22px;
     }
 
-    .wander-nest .auth-form input {
+    .auth-form input {
         padding: 10px;
         font-size: 14px;
     }
 
-    .wander-nest .auth-button,
-    .wander-nest .btn-register,
-    .wander-nest .btn-login {
-        font-size: 16px;
+    .btn-submit {
+        font-size: 14px;
+    }
+
+    .auth-switch {
+        font-size: 13px;
     }
 }
