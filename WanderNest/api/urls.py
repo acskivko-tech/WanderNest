@@ -12,7 +12,4 @@ router.register('booking',BookingViewSet)
 
 urlpatterns = [
     path('',include(router.urls)),
-    path('v1/auth/',include('djoser.urls')),
-    re_path('v1/auth/',include('djoser.urls.authtoken'))
-
 ]

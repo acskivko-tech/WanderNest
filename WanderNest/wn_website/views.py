@@ -1,11 +1,8 @@
 
-from django.contrib.auth import get_user_model, authenticate, login
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.core.paginator import Paginator
-from django.shortcuts import render
-from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DetailView
 from wn_website.forms import UserUpdateForm, UserCreationForm, UserLoginFrom

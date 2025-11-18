@@ -1,19 +1,33 @@
 {% extends 'base_form.html' %}
+
 {% block form_content %}
-    <!-- Страница входа -->
-    <section class="auth-page">
-        <div class="auth-container">
-            <div class="auth-card">
-                <h2 class="auth-title">Добро пожаловать обратно</h2>
-                <form class="auth-form" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn-login">
-                        Войти
-                    </button>
-                </form>
-                <p class="auth-switch">Нет аккаунта? <a href="{% url 'registration_page' %}">Зарегистрируйтесь здесь</a></p>
+    <div class="auth-page">
+        <h2 class="auth-title">Вход в аккаунт</h2>
+
+        <form class="auth-form" method="POST">
+            {% csrf_token %}
+
+            <div class="auth-errors">
+                {% if form.non_field_errors %}
+                    <div class="field-error">{{ form.non_field_errors }}</div>
+                {% endif %}
             </div>
+
+            {% for field in form %}
+                <div class="form-group">
+                    <label>{{ field.label }}:</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="field-error">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn-submit">Войти</button>
+        </form>
+
+        <div class="auth-switch">
+            <span>Нет аккаунта? <a href="{% url 'registration_page' %}">Зарегистрироваться</a></span>
         </div>
-    </section>
+    </div>
 {% endblock %}

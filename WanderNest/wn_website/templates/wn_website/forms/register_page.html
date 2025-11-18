@@ -1,39 +1,25 @@
 {% extends 'base_form.html' %}
+
 {% block form_content %}
-    <section class="auth-page">
-        <div class="auth-container">
-            <div class="auth-card">
-                <h2 class="auth-title">Создайте учетную запись</h2>
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="form-field">
-                        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
-                        {{ form.username }}
-                    </div>
-                    <div class="form-field">
-                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-                        {{ form.email }}
-                    </div>
-                    <div class="form-field">
-                        <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
-                        {{ form.first_name }}
-                    </div>
-                    <div class="form-field">
-                        <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
-                        {{ form.last_name }}
-                    </div>
-                    <div class="form-field">
-                        <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
-                        {{ form.password1 }}
-                    </div>
-                    <div class="form-field">
-                        <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
-                        {{ form.password2 }}
-                    </div>
-                    <button type="submit" class="btn-register">Зарегистрироваться</button>
-                </form>
-                <p class="auth-switch">Уже есть аккаунт? <a href="{% url 'auth_page' %}">Войдите здесь</a></p>
+    <div class="auth-page">
+        <h2 class="auth-title">Регистрация</h2>
+
+        <form class="auth-form" method="POST">
+            {% csrf_token %}
+
+            <div class="auth-errors">
+                {% if form.non_field_errors %}
+                    <div class="field-error">{{ form.non_field_errors }}</div>
+                {% endif %}
             </div>
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn-submit">Зарегистрироваться</button>
+        </form>
+
+        <div class="auth-switch">
+            <span>Уже есть аккаунт? <a href="{% url 'auth_page' %}">Войти</a></span>
         </div>
-    </section>
+    </div>
 {% endblock %}

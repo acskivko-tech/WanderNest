@@ -1,66 +1,128 @@
-/* Общие стили для всех страниц */
-.wander-nest {
-    font-family: 'Arial', sans-serif;
+/* === ОБЩИЕ СТИЛИ === */
+body {
     margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-    height: 100%;
-    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
 }
 
-/* Хедер */
-.wander-nest .header {
-    background-color: #333;
-    padding: 10px 20px;
+.wander-nest {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    color: white;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.wander-nest .header .logo {
+.auth-page {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    transition: transform 0.3s, box-shadow 0.3s ease;
+}
+
+.auth-page:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-title {
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.wander-nest .header .menu {
+.auth-form {
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    align-items: center;
 }
 
-.wander-nest .header .menu a {
-    color: #fff;
+.auth-form input {
+    padding: 12px;
     font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.wander-nest .header .menu a:hover {
-    color: #ffa500;
-    transform: scale(1.1);
-}
-
-/* Стили для кнопок и формы выхода */
-.wander-nest .header .auth-buttons a, .wander-nest .header .auth_user a, .wander-nest .header .auth_user form button {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 10px 15px;
-    background-color: #ff4500;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.auth-form input:focus {
+    border-color: #ff4500; /* Подсветка при фокусе */
+}
+
+.auth-errors ul {
+    padding: 0;
+    list-style: none;
+    color: #ff4500;
+    margin-bottom: 20px;
+}
+
+.auth-errors li {
+    font-size: 14px;
+}
+
+.btn-submit {
+    padding: 12px 0;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
     transition: background-color 0.3s, transform 0.3s ease;
 }
 
-.wander-nest .header .auth-buttons a:hover,
-.wander-nest .header .auth_user a:hover,
-.wander-nest .header .auth_user form button:hover {
+.btn-submit:hover {
     background-color: #e43f00;
-    transform: scale(1.1);
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+.auth-switch {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 20px;
+}
+
+.auth-switch a {
+    color: #ff4500;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-switch a:hover {
+    color: #e43f00;
+}
+
+/* === МЕДИА-ЗАПРОСЫ === */
+@media (max-width: 768px) {
+    .auth-page {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .auth-title {
+        font-size: 22px;
+    }
+
+    .auth-form input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+    }
+
+    .auth-switch {
+        font-size: 13px;
+    }
 }

@@ -22,6 +22,11 @@ class UserCreationForm(UserCreationForm):
             raise forms.ValidationError('Пользователь с такой почтой уже существует')
         return email
 
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        for field in self.fields.values():
+            field.help_text = ''
+
 
 
 
