@@ -5,34 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WanderNest - Путешествуй с нами</title>
-    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet">
+
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
     {% block ad_style %}{% endblock %}
 </head>
-<body class="wander-nest">
-    <!-- Хедер -->
-   <header class="header">
-    <a href="#" class="logo">WanderNest</a>
 
-    <nav class="menu">
+<body>
+
+<!-- ХЕДЕР -->
+<header class="wn-header">
+    <a href="{% url 'welcome_page' %}" class="wn-logo">WanderNest</a>
+
+    <nav class="wn-menu">
         <a href="{% url 'welcome_page' %}">Главная</a>
         <a href="{% url 'destinations_page' %}">Туры</a>
         <a href="#contact">Контакты</a>
     </nav>
 
-    <div class="auth-buttons">
-        {% if not user.is_authenticated %}
+    <div class="wn-auth-buttons">
+        {% if user.is_authenticated %}
+            <div class="wn-user-area">
+                <a href="{% url 'user_page' %}" class="wn-auth-user">{{ user.username }}</a>
+            </div>
+        {% else %}
             <a href="{% url 'auth_page' %}">Войти</a>
             <a href="{% url 'registration_page' %}">Регистрация</a>
-        {% else %}
-            <div class="user-area">
-                <div class="auth_user">
-                    <a href="{% url 'user_page' %}">{{ user.username }}</a>
-                </div>
         {% endif %}
-            </div>
+    </div>
 </header>
 
-    <!-- Контент страницы -->
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<main class="wn-wander-nest">
     {% block content %}{% endblock %}
+</main>
+
 </body>
 </html>

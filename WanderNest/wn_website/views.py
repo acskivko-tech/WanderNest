@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.core.paginator import Paginator
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DetailView
 from wn_website.forms import UserUpdateForm, UserCreationForm, UserLoginFrom
@@ -32,6 +33,19 @@ class TourInfoView(DetailView):
     model = Tour
     template_name = 'wn_website/main_pages/destination_info.html'
     context_object_name = 'tour'
+    # Обработка формы бронирования
+    def post(self, request, *args, **kwargs):
+        tour = self.get_object()  # Получаем текущий тур
+        if request.user.is_authenticated:
+            # Если пользователь авторизован, создаем бронирование
+            booking = Booking.objects.create(
+                user=request.user,
+                tour=tour
+            )
+            return redirect('user_page')
+        else:
+            # Если пользователь не авторизован, перенаправляем на страницу логина
+            return redirect('auth_page')
 
 
 class UserRegisterView(CreateView):

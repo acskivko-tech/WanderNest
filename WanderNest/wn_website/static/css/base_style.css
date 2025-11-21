@@ -1,0 +1,112 @@
+/* Общие стили для страницы */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f4f7fa, #e8edf3); /* Светлый фон */
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Стили для хедера */
+.header {
+    width: 100%;
+    background-color: #333;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень под хедером */
+}
+
+.logo {
+    font-size: 28px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ff4500; /* Оранжевый цвет при наведении */
+}
+
+/* Стили для блока с кнопками аутентификации */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-buttons a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #ff4500; /* Оранжевая кнопка */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth-buttons a:hover {
+    background-color: #e43f00;
+    transform: scale(1.05);
+}
+
+/* Основной контент */
+.wander-nest {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Стиль для блока с основным контентом */
+main .wander-nest {
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Поддержка мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .auth-buttons {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .auth-buttons a {
+        padding: 10px 20px;
+    }
+
+    .wander-nest {
+        padding: 20px;
+        width: 100%;
+    }
+}

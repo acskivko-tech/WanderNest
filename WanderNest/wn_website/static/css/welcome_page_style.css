@@ -1,53 +1,99 @@
-/* Баннер на главной странице (welcome) */
-.wander-nest .hero-banner {
+/* Основной баннер с фоном */
+.wn-hero-banner {
     background-image: url('https://images.wallpaperscraft.ru/image/single/pliazh_palmy_leto_121803_1920x1080.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
+    background-size: cover;       /* Растягиваем изображение по размеру экрана */
+    background-position: center center;  /* Центровка изображения */
+    background-repeat: no-repeat; /* Без повторений */
+    height: 100vh;                /* Устанавливаем высоту на 100% экрана */
+    width: 100%;                  /* Ширина на 100% */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
-    padding: 0 20px;
-    opacity: 0;
-    animation: fadeIn 2s forwards 2s;
-}
-
-.wander-nest .hero-banner .hero-content h1 {
-    font-size: 50px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    opacity: 0;
-    animation: fadeIn 1s forwards 2.5s;
-}
-
-.wander-nest .hero-banner .hero-content p {
-    font-size: 20px;
-    margin-bottom: 25px;
-    opacity: 0;
-    animation: fadeIn 1s forwards 3s;
-}
-
-.wander-nest .hero-banner .cta-button {
-    padding: 15px 30px;
-    background-color: #ff4500;
     color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    transition: background-color 0.3s, transform 0.3s ease;
     opacity: 0;
-    animation: fadeIn 1s forwards 3.5s;
+    animation: wn-fadeIn 2s forwards 0.5s;
 }
 
-.wander-nest .hero-banner .cta-button:hover {
-    background-color: #e43f00;
-    transform: scale(1.1);
-}
-
-@keyframes fadeIn {
+/* Анимация появления */
+@keyframes wn-fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+/* Элементы внутри баннера */
+.wn-hero-content h1 {
+    opacity: 0;
+    animation: wn-fadeIn 1s forwards;
+    animation-delay: 0.7s;
+}
+
+.wn-hero-content p {
+    opacity: 0;
+    animation: wn-fadeIn 1s forwards;
+    animation-delay: 1.2s;
+}
+
+.wn-cta-button {
+    opacity: 0;
+    animation: wn-fadeIn 1s forwards;
+    animation-delay: 1.7s;
+    display: inline-block; /* Чтобы ссылка вела себя как элемент кнопки */
+    background-color: #ff4500; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 12px 30px; /* Внутренние отступы (сделаем как у кнопки) */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: 600; /* Жирный шрифт */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Плавный переход для фона и масштабирования */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+/* Эффект при наведении на ссылку (кнопку) */
+.wn-cta-button:hover {
+    background-color: #e43f00; /* Изменение фона при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+/* Эффект при нажатии на кнопку */
+.wn-cta-button:active {
+    transform: scale(0.98); /* Немного уменьшаем кнопку при нажатии */
+}
+
+/* Адаптивные стили для маленьких экранов */
+@media (max-width: 768px) {
+    /* Стили для меню */
+    .wn-menu {
+        gap: 15px; /* Меньшее расстояние между элементами */
+        flex-direction: column; /* Переводим меню в столбик на маленьких экранах */
+        align-items: center; /* Выравнивание по центру */
+    }
+
+    .wn-logo {
+        font-size: 22px; /* Уменьшаем размер логотипа */
+    }
+
+    .wn-header {
+        padding: 10px 20px; /* Уменьшаем padding для хедера */
+    }
+
+    /* Уменьшаем размеры кнопок */
+    .wn-auth-buttons a {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .wn-cta-button {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
+    .wn-hero-content h1 {
+        font-size: 32px; /* Уменьшаем размер текста */
+    }
+
+    .wn-hero-content p {
+        font-size: 16px;
+    }
 }

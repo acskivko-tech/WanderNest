@@ -1,128 +1,62 @@
-/* === ОБЩИЕ СТИЛИ === */
-body {
+/* Стили для body и html */
+html, body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fa;
-}
-
-.wander-nest {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.auth-page {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    padding: 30px;
-    transition: transform 0.3s, box-shadow 0.3s ease;
-}
-
-.auth-page:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.auth-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.auth-form input {
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    transition: border 0.3s ease;
-}
-
-.auth-form input:focus {
-    border-color: #ff4500; /* Подсветка при фокусе */
-}
-
-.auth-errors ul {
     padding: 0;
-    list-style: none;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f7fa, #e8edf3);
+    color: #333;
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+}
+
+/* Стили для основного хедера */
+.wn-header {
+    width: 100%;
+    background-color: #000;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-sizing: border-box; /* Чтобы padding не вылезал за границы */
+    overflow: hidden; /* Чтобы избежать переполнения */
+}
+
+.wn-logo {
     color: #ff4500;
-    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-.auth-errors li {
-    font-size: 14px;
+.wn-menu {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap; /* Чтобы меню не выходило за пределы экрана */
 }
 
-.btn-submit {
-    padding: 12px 0;
-    background-color: #ff4500;
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.3s, transform 0.3s ease;
+.wn-menu a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
 }
 
-.btn-submit:hover {
-    background-color: #e43f00;
-    transform: scale(1.1); /* Легкое увеличение при наведении */
+.wn-menu a:hover {
+    color: #ff4500;
 }
 
-.auth-switch {
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-    margin-top: 20px;
-}
-
-.auth-switch a {
+.wn-auth-buttons a,
+.wn-auth-user {
     color: #ff4500;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
-.auth-switch a:hover {
+.wn-auth-buttons a:hover,
+.wn-auth-user:hover {
     color: #e43f00;
-}
-
-/* === МЕДИА-ЗАПРОСЫ === */
-@media (max-width: 768px) {
-    .auth-page {
-        padding: 20px;
-        width: 90%;
-    }
-
-    .auth-title {
-        font-size: 22px;
-    }
-
-    .auth-form input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .btn-submit {
-        font-size: 14px;
-    }
-
-    .auth-switch {
-        font-size: 13px;
-    }
 }

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from wn_website.models import Transport, Tour
+from wn_website.models import Transport, Tour, Booking
 
 
 # Register your models here.
@@ -17,3 +17,9 @@ class Tour(admin.ModelAdmin):
     list_display_links = ['id','title']
     list_per_page = 10
     list_filter = ['transport','price','start_date','end_date']
+
+@admin.register(Booking)
+class Booking(admin.ModelAdmin):
+    list_display = ['id','user','tour','booking_date']
+    list_display_links = ['id']
+    list_filter = ['user','tour']
