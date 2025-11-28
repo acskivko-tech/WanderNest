@@ -33,9 +33,8 @@ class TourInfoView(DetailView):
     model = Tour
     template_name = 'wn_website/main_pages/destination_info.html'
     context_object_name = 'tour'
-    # Обработка формы бронирования
     def post(self, request, *args, **kwargs):
-        tour = self.get_object()  # Получаем текущий тур
+        tour = self.get_object()
         if request.user.is_authenticated:
             # Если пользователь авторизован, создаем бронирование
             booking = Booking.objects.create(
